@@ -1,0 +1,81 @@
+@startuml
+[*] --> Inicio
+
+Inicio : Registro de Vendedor
+Inicio : Iniciar Sesión
+Inicio : Olvidó su Contraseña
+
+Inicio --> Login
+
+Login : "Si es Administrador"
+Login : "Si es Vendedor"
+
+Login --> Menu_Administrador : "Inicia sesión como Administrador"
+Login --> Menu_Vendedor : "Inicia sesión como Vendedor"
+
+' Sección de Vendedor
+Menu_Vendedor : "Bienvenida de Vendedor"
+Menu_Vendedor : "Asignaciones Diarias"
+Menu_Vendedor --> AsignacionesDiarias : "Ver Detalles de Asignaciones"
+
+AsignacionesDiarias : "Ver Detalles"
+AsignacionesDiarias --> [*] : "Cerrar Sesión"
+
+' Sección de Menu_Administrador
+Menu_Administrador : "Bienvenida de Administrador"
+Menu_Administrador : "Productos"
+Menu_Administrador : "Categorías"
+Menu_Administrador : "Vendedores"
+Menu_Administrador : "Asignaciones"
+Menu_Administrador : "Proveedores"
+
+Menu_Administrador --> Productos : "Gestionar Productos"
+Menu_Administrador --> Categorías : "Gestionar Categorías"
+Menu_Administrador --> Vendedores : "Gestionar Vendedores"
+Menu_Administrador --> Asignaciones : "Asignar Productos a Vendedores"
+Menu_Administrador --> Proveedores : "Gestionar Proveedores"
+
+' Subsección Productos
+Productos : "Ver Productos"
+Productos : "Crear Producto"
+Productos : "Editar Producto"
+Productos : "Eliminar Producto"
+Productos --> Menu_Administrador : "Regresar"
+Productos --> [*] : "Cerrar Sesión"
+
+' Subsección Categorías
+Categorías : "Ver Categorías"
+Categorías : "Crear Categoría"
+Categorías : "Editar Categoría"
+Categorías : "Eliminar Categoría"
+Categorías --> Menu_Administrador : "Regresar"
+Categorías --> [*] : "Cerrar Sesión"
+
+' Subsección Vendedores
+Vendedores : "Ver Vendedores"
+Vendedores : "Crear Vendedor"
+Vendedores : "Editar Vendedor"
+Vendedores : "Eliminar Vendedor"
+Vendedores --> Menu_Administrador : "Regresar"
+Vendedores --> [*] : "Cerrar Sesión"
+
+' Subsección Asignaciones
+Asignaciones : "Asignar Productos"
+Asignaciones : "Editar Productos"
+Asignaciones : "Eliminar Productos"
+Asignaciones --> Menu_Administrador : "Regresar"
+Asignaciones --> [*] : "Cerrar Sesión"
+
+' Subsección Proveedores
+Proveedores : "Ver Proveedores"
+Proveedores : "Crear Proveedor"
+Proveedores : "Editar Proveedor"
+Proveedores --> Menu_Administrador : "Regresar"
+Proveedores --> [*] : "Cerrar Sesión"
+
+@enduml
+
+
+
+
+

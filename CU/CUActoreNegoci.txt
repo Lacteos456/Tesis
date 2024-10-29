@@ -1,0 +1,7 @@
+@startuml
+package "Actores de negocio" {
+    actor Vendedor
+    actor Administrador
+    actor Sistema
+}
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+package "Diagrama global de Caso de Uso de Negocio" {
+
+    rectangle "Sistema" {
+        usecase "Iniciar Sesión" as UC1
+        usecase "Registrar Venta" as UC2
+        usecase "Generar Reportes" as UC3
+        usecase "Gestionar Inventario" as UC4
+        usecase "Asignar Tareas" as UC5
+        usecase "Consultar Asignaciones" as UC6
+        usecase "Actualizar Perfil" as UC7
+        usecase "Cerrar Sesión" as UC8
+    }
+
+}
+@enduml

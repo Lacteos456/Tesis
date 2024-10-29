@@ -1,0 +1,15 @@
+@startuml
+actor Administrador
+
+rectangle "Sistema" {
+    rectangle "Proveedores" {
+        usecase "Ver Proveedores" as UC6_1
+        usecase "Crear Proveedor" as UC6_2
+        usecase "Editar Proveedor" as UC6_3
+    }
+}
+
+Administrador --> UC6_1
+Administrador --> UC6_2
+Administrador --> UC6_3
+@enduml

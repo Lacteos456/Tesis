@@ -1,0 +1,17 @@
+@startuml
+actor Administrador
+
+rectangle "Sistema" {
+    rectangle "Categorías" {
+        usecase "Ver Categorías" as UC3_1
+        usecase "Crear Categoría" as UC3_2
+        usecase "Editar Categoría" as UC3_3
+        usecase "Eliminar Categoría" as UC3_4
+    }
+}
+
+Administrador --> UC3_1
+Administrador --> UC3_2
+Administrador --> UC3_3
+Administrador --> UC3_4
+@enduml

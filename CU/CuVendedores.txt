@@ -1,0 +1,17 @@
+@startuml
+actor Administrador
+
+rectangle "Sistema" {
+    rectangle "Vendedores" {
+        usecase "Ver Vendedores" as UC4_1
+        usecase "Crear Vendedor" as UC4_2
+        usecase "Editar Vendedor" as UC4_3
+        usecase "Eliminar Vendedor" as UC4_4
+    }
+}
+
+Administrador --> UC4_1
+Administrador --> UC4_2
+Administrador --> UC4_3
+Administrador --> UC4_4
+@enduml

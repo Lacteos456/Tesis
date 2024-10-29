@@ -1,0 +1,57 @@
+@startuml
+start
+
+:Inicio de Sesión;
+if (¿Es Vendedor?) then (Sí)
+    :Pantalla de Bienvenida de Vendedor;
+    :Ver Asignaciones Diarias;
+    if (Ver Detalles de Asignaciones?) then (Sí)
+        :Mostrar Detalles de Asignaciones;
+    endif
+    :Cerrar Sesión;
+    stop
+else (No)
+    if (¿Es Administrador?) then (Sí)
+        :Pantalla de Bienvenida de Administrador;
+        partition "Gestión de Productos" {
+            :Ver Productos;
+            :Crear Producto;
+            :Editar Producto;
+            :Eliminar Producto;
+        }
+        
+        partition "Gestión de Categorías" {
+            :Ver Categorías;
+            :Crear Categoría;
+            :Editar Categoría;
+            :Eliminar Categoría;
+        }
+        
+        partition "Gestión de Vendedores" {
+            :Ver Vendedores;
+            :Crear Vendedor;
+            :Editar Vendedor;
+            :Eliminar Vendedor;
+        }
+        
+        partition "Gestión de Asignaciones" {
+            :Asignar, editar, eliminar  Productos a Vendedores;
+        }
+        
+        partition "Gestión de Proveedores" {
+            :Ver Proveedores;
+            :Crear Proveedor;
+            :Editar Proveedor;
+            :Eliminar Proveedor;
+        }
+        
+        :Cerrar Sesión;
+        stop
+    else (No)
+        :Mostrar Error de Autenticación;
+        :Regresar a Inicio de Sesión;
+        stop
+    endif
+endif
+
+@enduml

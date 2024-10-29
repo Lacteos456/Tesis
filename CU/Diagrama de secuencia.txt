@@ -1,0 +1,70 @@
+@startuml
+actor Usuario
+participant "Sistema de Autenticación" as Auth
+participant "Sistema" as S
+database "Base de Datos" as DB
+
+Usuario -> Auth: Iniciar Sesión
+Auth -> DB: Consultar credenciales
+DB --> Auth: Resultado de autenticación
+Auth -> Usuario: ¿Es Administrador o Vendedor?
+
+alt Es Vendedor
+    Usuario -> S: Mostrar Pantalla de Bienvenida de Vendedor, Ver Asignaciones Diarias
+
+    S -> DB: Consultar Asignaciones
+    DB --> S: Datos de Asignaciones
+    opt Ver Detalles de Asignaciones
+        Usuario -> S: Solicitar Detalles de Asignaciones
+        S -> DB: Consultar Detalles de Asignaciones
+        DB --> S: Datos Detallados de Asignaciones
+    end
+    Usuario -> Auth: Cerrar Sesión
+else Es Administrador
+    Usuario -> S: Mostrar Pantalla de Bienvenida de Administrador
+
+    group Gestión de Productos
+        Usuario -> S: Crear Producto,Ver Productos, Editar Producto , Eliminar Producto
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+    end
+
+    group Gestión de Categorías
+        Usuario -> S: Ver Categorías, Crear Categoría, Editar Categoría, Eliminar Categoría
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+  
+    end
+
+    group Gestión de Vendedores
+        Usuario -> S: Ver Vendedores, Crear Vendedor, Editar Vendedor, Eliminar Vendedor
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+     
+    end
+
+    group Gestión de Asignaciones
+        Usuario -> S: Asignar Producto a Vendedores
+        S -> DB: Asignar Producto
+        DB --> S: Confirmación de Asignación
+        
+        Usuario -> S: Editar Asignación
+        S -> DB: Actualizar Asignación
+        DB --> S: Confirmación de Actualización
+        
+        Usuario -> S: Eliminar Asignación
+        S -> DB: Eliminar Asignación
+        DB --> S: Confirmación de Eliminación
+    end
+
+    group Gestión de Proveedores
+        Usuario -> S: Ver Proveedores, Crear Proveedor, Editar Proveedor, Eliminar Proveedor
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+    end
+
+    Usuario -> Auth: Cerrar Sesión
+else Fallo en Autenticación
+    Auth -> Usuario: Mostrar Error de Autenticación
+end
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor Administrador
+
+rectangle "Sistema" {
+    rectangle "Asignaciones" {
+        usecase "Asignar Productos" as UC5_1
+        usecase "Editar Productos" as UC5_2
+        usecase "Eliminar Productos" as UC5_3
+    }
+}
+
+Administrador --> UC5_1
+Administrador --> UC5_2
+Administrador --> UC5_3
+@enduml
