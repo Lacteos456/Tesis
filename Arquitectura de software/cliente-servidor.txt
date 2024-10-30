@@ -1,0 +1,23 @@
+@startuml
+title Arquitectura de Software - Modelo Cliente-Servidor en Capas
+
+actor Usuario as user
+node Cliente {
+    [Interfaz de Usuario (Angular)]
+}
+
+node Servidor {
+    [Capa de Presentación] 
+    [Capa de Lógica de Negocio] 
+    [Capa de Acceso a Datos]
+}
+
+database "Base de Datos MySQL" as db
+
+user --> Cliente : Interacción
+Cliente --> Servidor : Solicitudes HTTP
+Servidor --> db : Consultas y Modificaciones
+db --> Servidor : Respuestas
+Servidor --> Cliente : Respuesta HTTP
+
+@enduml

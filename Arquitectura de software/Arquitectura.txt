@@ -1,0 +1,33 @@
+@startuml
+title Arquitectura de Software - Cliente-Servidor
+
+node "Frontend" as FE {
+    [Angular\nComponentes, Servicios, Guards]
+    note bottom
+    Angular maneja la interfaz de usuario
+    y controla la navegación y acceso.
+    end note
+}
+
+node "Backend" as BE {
+    [Spring Boot\nServicios, Controladores, Repositorios, Modelos]
+    note bottom
+    Spring Boot gestiona la lógica de negocio y
+    controla la conexión a la base de datos.
+    end note
+}
+
+database "Base de Datos" as DB {
+    [MySQL\nDBeaver, phpMyAdmin, MySQL Workbench]
+    note bottom
+    MySQL almacena los datos del sistema,
+    accesible desde el backend.
+    end note
+}
+
+FE -[#green]-> BE : Solicitudes HTTP (GET, POST, PUT, DELETE)
+BE -[#blue]-> DB : Consultas SQL
+DB -[#blue]-> BE : Resultados SQL
+BE -[#green]-> FE : Respuestas HTTP
+
+@enduml

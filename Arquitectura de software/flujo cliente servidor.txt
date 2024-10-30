@@ -1,0 +1,29 @@
+@startuml
+title Flujo de Datos en la Arquitectura Cliente-Servidor
+
+actor Usuario as user
+participant "Cliente (Angular)" as client
+participant "Capa de Presentación" as presentation
+participant "Capa de Lógica de Negocio" as business
+participant "Capa de Acceso a Datos" as dataaccess
+database "Base de Datos MySQL" as db
+
+== Inicio de Interacción ==
+user -> client : Interacción con el sistema (ej: crear producto)
+client -> presentation : Enviar solicitud HTTP (POST/GET)
+
+== Procesamiento en el Servidor ==
+presentation -> business : Transferir datos de la solicitud
+business -> dataaccess : Solicitar acceso a los datos (ej: insert, update)
+dataaccess -> db : Ejecutar operación en la base de datos
+
+== Respuesta desde la Base de Datos ==
+db --> dataaccess : Resultado de la operación (ej: éxito, datos)
+dataaccess --> business : Pasar datos a la capa de negocio
+business --> presentation : Preparar respuesta para el cliente
+presentation --> client : Responder al cliente (JSON)
+
+== Visualización para el Usuario ==
+client -> user : Mostrar respuesta en la interfaz
+
+@enduml
