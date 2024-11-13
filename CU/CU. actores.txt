@@ -1,0 +1,15 @@
+@startuml
+
+
+package "Actores de negocio" {
+    rectangle {
+     
+        
+        actor ADMINISTRADOR <<business actor>>
+        actor VENDEDOR <<business actor>>
+    }
+    
+  
+}
+
+@enduml

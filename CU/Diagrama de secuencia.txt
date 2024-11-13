@@ -35,6 +35,12 @@ else Es Administrador
         DB --> S: Confirmación de operacion
   
     end
+    group Gestión de Administradores
+        Usuario -> S: Ver Vendedores, Crear Vendedor, Editar Vendedor, Eliminar Vendedor
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+     
+    end
 
     group Gestión de Vendedores
         Usuario -> S: Ver Vendedores, Crear Vendedor, Editar Vendedor, Eliminar Vendedor
@@ -43,26 +49,23 @@ else Es Administrador
      
     end
 
-    group Gestión de Asignaciones
-        Usuario -> S: Asignar Producto a Vendedores
-        S -> DB: Asignar Producto
-        DB --> S: Confirmación de Asignación
-        
-        Usuario -> S: Editar Asignación
-        S -> DB: Actualizar Asignación
-        DB --> S: Confirmación de Actualización
-        
-        Usuario -> S: Eliminar Asignación
-        S -> DB: Eliminar Asignación
-        DB --> S: Confirmación de Eliminación
-    end
-
+    
     group Gestión de Proveedores
         Usuario -> S: Ver Proveedores, Crear Proveedor, Editar Proveedor, Eliminar Proveedor
         S -> DB: Realisar operacion
         DB --> S: Confirmación de operacion
     end
 
+    group Gestión de suministros
+        Usuario -> S: Ver Proveedores, Crear Proveedor, Editar Proveedor, Eliminar Proveedor
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+    end
+    group Gestión de Asignaciones
+        Usuario -> S: Ver Proveedores, Crear Proveedor, Editar Proveedor, Eliminar Proveedor
+        S -> DB: Realisar operacion
+        DB --> S: Confirmación de operacion
+    end
     Usuario -> Auth: Cerrar Sesión
 else Fallo en Autenticación
     Auth -> Usuario: Mostrar Error de Autenticación

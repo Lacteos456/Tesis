@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+package "CU Gestión de Asignaciones " {
+
+    actor Administrador <<from actores>>
+
+    rectangle "Gestión de Asignaciones   " {
+        usecase "Cu. Agregar\nnuevos \nAsignaciones   " as CU1
+        usecase "Cu. Consultar\nInformación de\nAsignaciones    " as CU2
+        usecase "Cu. Modificar\nInformación de\nAsignaciones    " as CU3
+        usecase "Cu. Eliminar\nAsignaciones    " as CU4
+        usecase "Cu. Verificar \nDatos" as CU5
+        usecase "Cu. Confirmar \nEliminación" as CU6
+        usecase "Cu. Asignar \na un Vendedor\nExistente" as CU7
+        usecase "Cu. Asignar \nCantidad de \nProductos" as CU8
+        usecase "Cu. Elegir \nProductos" as CU9
+    }
+
+   
+    Administrador -- CU1
+    Administrador -- CU2
+    Administrador -- CU3
+    Administrador -- CU4
+
+    CU4 ..> CU6 : <<extend>>
+    CU3 ..> CU5 : <<include>>
+    CU1 ..> CU5 : <<include>>
+    CU1 ..> CU7 : <<include>>
+    CU1 ..> CU8 : <<include>>
+    CU1 ..> CU9 : <<include>>
+}
+@enduml

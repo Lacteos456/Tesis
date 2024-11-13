@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+
+package "CU Gestión de Vendedores" {
+
+    actor Administrador <<from actores>>
+
+    rectangle "Gestión de Vendedores" {
+        usecase "Cu. Agregar\nnuevos usuarios" as CU1
+        usecase "Cu. Consultar\nInformación de\nusuarios" as CU2
+        usecase "Cu. Modificar\nInformación de\nusuario" as CU3
+        usecase "Cu. Eliminar\nusuarios" as CU4
+        usecase "Cu. Verificar Datos" as CU5
+        usecase "Cu. Confirmar Eliminación" as CU6
+    }
+
+   
+    Administrador -- CU1
+    Administrador -- CU2
+    Administrador -- CU3
+    Administrador -- CU4
+
+    CU4 ..> CU6 : <<extend>>
+    CU3 ..> CU5 : <<include>>
+    CU1 ..> CU5 : <<include>>
+
+}
+@enduml
+

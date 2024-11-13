@@ -1,0 +1,43 @@
+@startuml
+skinparam linetype ortho
+
+rectangle "Idea general" as idea_general #f28b82
+
+rectangle "Clasificación de \nla información" as clasificacion #f6c56c
+rectangle "Planteamiento del \nproblema" as planteamiento #f6c56c
+rectangle "Elección de la \nmetodología" as metodologia #f6c56c
+rectangle "Definición de \nobjetivos" as objetivos #f6c56c
+
+rectangle "Búsqueda de la \ninformación" as busqueda #a3e5a5
+rectangle "Limitación de la \npropuesta" as limitacion #a3e5a5
+rectangle "Definición del \nproblema" as definicion_problema #a3e5a5
+rectangle "Realización del \ncronograma de \nactividades" as cronograma #a3e5a5
+rectangle "Definición de las \netapas del \nproyecto" as etapas #a3e5a5
+
+rectangle "Capítulo I. Enfoque \nteórico" as cap1 #ffa86c
+rectangle "Capítulo II. Diseño \nmetodológico" as cap2 #ffa86c
+rectangle "Capítulo III. Desarrollo" as cap3 #ffa86c
+rectangle "Capítulo IV. Resultados" as cap4 #ffa86c
+
+idea_general --> clasificacion
+idea_general --> planteamiento
+idea_general --> metodologia
+idea_general --> objetivos
+
+clasificacion --> busqueda
+clasificacion --> limitacion
+planteamiento --> definicion_problema
+metodologia --> cronograma
+objetivos --> etapas
+
+busqueda --> cap1
+limitacion --> cap1
+definicion_problema --> cap1
+cronograma --> cap2
+etapas --> cap3
+
+cap1 -> cap2
+cap2 -> cap3
+cap3 -> cap4
+etapas --> cap4
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+
+package CU Vendedor {
+
+    actor Vendedor from actores
+
+    rectangle Ver Asignaciones {
+        usecase Cu. Ver nAsignaciones    as CU1
+        
+       usecase Cu. Decargar nAsignaciones    as CU2
+    }
+
+   
+    Vendedor -- CU1
+    CU1 ..CU2  Extend
+
+
+
+  
+}
+@enduml

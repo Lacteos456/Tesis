@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+
+package "CU Gestión de Administrador" {
+
+    actor Administrador <<from actores>>
+
+    rectangle "Gestión de Administrador" {
+        usecase "Cu. Agregar\nnuevos \nAdministradores" as CU1
+        usecase "Cu. Consultar\nInformación de\nAdministrador" as CU2
+        usecase "Cu. Modificar\nInformación de\nAdministrador" as CU3
+        usecase "Cu. Eliminar\nAdministrador" as CU4
+        usecase "Cu. Verificar Datos" as CU5
+        usecase "Cu. Confirmar Eliminación" as CU6
+    }
+
+   
+    Administrador -- CU1
+    Administrador -- CU2
+    Administrador -- CU3
+    Administrador -- CU4
+
+    CU4 ..> CU6 : <<extend>>
+    CU3 ..> CU5 : <<include>>
+    CU1 ..> CU5 : <<include>>
+
+}
+@enduml
+
